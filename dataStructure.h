@@ -4,6 +4,7 @@
 
 #ifndef TEST_DATASTRUCTURE_H
 #define TEST_DATASTRUCTURE_H
+#define MAX_SIZE 10
 
 #include "stdio.h"
 #include "stdlib.h"
@@ -171,6 +172,52 @@ void doubleDisplayBackward(struct Node *head){
     }
 }
 
+
+// For Stack Data Structure
+struct Stack{
+    int top;
+    int item[MAX_SIZE];
+};
+
+void initializing(struct Stack *stack){
+    stack->top = -1;
+}
+
+int isFull(struct Stack *stack){
+    return stack->top == MAX_SIZE - 1;
+}
+
+void push(struct Stack *stack,int value){
+    if(isFull(stack)){
+        printf("Stack overflow\n");
+        exit(1);
+    }else{
+        stack->item[++stack->top] = value;
+        printf("Date %d is insert at index %d\n",value,stack->top);
+    }
+}
+
+int isEmpty(struct Stack *stack){
+    return stack->top == -1;
+}
+
+int pop(struct Stack *stack){
+    if(isEmpty(stack)){
+        printf("Stack underflow\n");
+        exit(1);
+    }else{
+        return stack->item[stack->top--];
+    }
+}
+
+int peek(struct Stack *stack){
+    if(isEmpty(stack)){
+        printf("Stack is empty!\n");
+        return 1;
+    }else{
+        return stack->item[stack->top];
+    }
+}
 
 
 #endif //TEST_DATASTRUCTURE_H
