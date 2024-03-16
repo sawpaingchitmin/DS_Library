@@ -1,6 +1,8 @@
 //
 // Created by saw_henry_min on 3/14/24.
 //
+
+#include "stdio.h"
 #include "dataStructure.h"
 
 int main() {
