@@ -1,2 +1,2 @@
 # DS_Library
-Data Structure is in master branch
+Data Structure Library is in master branch
