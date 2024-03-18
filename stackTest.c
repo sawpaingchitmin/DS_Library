@@ -27,6 +27,8 @@ int main() {
     push(&stack, 80);
     printf("Now top data of stack is %d at index %d\n\n", peek(&stack), stack.top);
 
+    showStack(&stack);
+
 
     return 0;
 

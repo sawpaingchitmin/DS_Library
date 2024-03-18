@@ -23,6 +23,7 @@ struct Stack{
 //For Single Linked List
 struct Node *createSingle(int newData);
 void singleInsert(struct Node **head,int Data);
+void singleAppend(struct Node **head,int Data);
 void singleShowData(struct Node *head);
 void singleDelete(struct Node **head,int key);
 
@@ -43,6 +44,7 @@ void push(struct Stack *stack,int value);
 int isEmpty(struct Stack *stack);
 int pop(struct Stack *stack);
 int peek(struct Stack *stack);
+void showStack(struct Stack *stack);
 
 
 #endif //TEST_DATASTRUCTURE_H

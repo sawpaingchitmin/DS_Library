@@ -20,7 +20,7 @@ int main() {
     doubleShowData(head);
 
     doubleDelete(&head, 20);
-    printf("\nAfter delete\n");
+    printf("\n===After delete===\n");
     doubleDisplayForward(head);
     doubleDisplayBackward(head);
 

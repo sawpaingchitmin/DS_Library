@@ -22,10 +22,28 @@ void singleInsert(struct Node **head,int Data){
     *head = newNode;
 }
 
+void singleAppend(struct Node **head,int Data){
+    struct Node *newNode = createSingle(Data);
+    struct Node *last = *head;
+    if(*head == NULL){
+        *head = newNode;
+        return;
+    }
+
+    while(last->next != NULL){
+        last = last->next;
+    }
+
+    last->next = newNode;
+
+}
+
 void singleShowData(struct Node *head){
+    int i = 0;
     while (head != NULL){
-        printf("Data : %d\n",head->data);
+        printf("Index %d data : %d\n",i,head->data);
         head = head->next;
+        i++;
     }
 }
 
@@ -96,9 +114,11 @@ void doubleShowData(struct Node *head){
         return;
     }
 
+    int i = 0;
     while(head != NULL){
-        printf("Data : %d\n",head->data);
+        printf("index %d data : %d\n",i,head->data);
         head = head->next;
+        i++;
     }
 }
 
@@ -142,9 +162,11 @@ void doubleDisplayForward(struct Node *head){
     }
     printf("Displaying Forward\n");
 
+    int i = 0;
     while (head != NULL){
-        printf("Data : %d\n",head->data);
+        printf("Index %d data : %d\n",i,head->data);
         head = head->next;
+        i++;
     }
 }
 
@@ -157,11 +179,13 @@ void doubleDisplayBackward(struct Node *head){
     while (tail->next != NULL){
         tail = tail->next;
     }
-    printf("Displaying Backward\n");
+    printf("\nDisplaying Backward\n");
 
+    int i = 0;
     while (tail != NULL){
-        printf("Data : %d\n",tail->data);
+        printf("Index %d data : %d\n",i,tail->data);
         tail = tail->prev;
+        i++;
     }
 }
 
@@ -204,6 +228,18 @@ int peek(struct Stack *stack){
         return 1;
     }else{
         return stack->item[stack->top];
+    }
+}
+
+void showStack(struct Stack *stack){
+    if(isEmpty(stack)){
+        printf("Stack is empty!\n");
+        return;
+    }
+
+    printf("===Stack Data===\n");
+    for(int i = 0; i <= stack->top; i++){
+        printf("Index %d => %d\n",i,stack->item[i]);
     }
 }
 

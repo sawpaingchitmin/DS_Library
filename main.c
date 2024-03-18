@@ -16,8 +16,10 @@ int main(){
     singleInsert(&head,200);
     singleInsert(&head,300);
     singleInsert(&head,400);
+    singleAppend(&head,500);
     singleShowData(head);
-    singleDelete(&head,300);
+
+    singleDelete(&head,500);
     printf("\nAfter delete\n");
     singleShowData(head);
 
