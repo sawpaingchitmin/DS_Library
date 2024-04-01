@@ -14,11 +14,17 @@ struct Node{
     struct Node *prev;
 };
 
-//For Stack Data Structure
+//For Stack DS(Array Implement)
 struct Stack{
     int top;
     int item[MAX_SIZE];
 };
+
+// For Stack DS(Linked List Implement)
+struct StackLL{
+    struct Node* top;
+};
+
 
 //For Single Linked List
 struct Node *createSingle(int newData);
@@ -37,7 +43,7 @@ void doubleDelete(struct Node **head,int key);
 void doubleDisplayForward(struct Node *head);
 void doubleDisplayBackward(struct Node *head);
 
-//For Stack
+//For Stack with Array
 void initializing(struct Stack *stack);
 int isFull(struct Stack *stack);
 void push(struct Stack *stack,int value);
@@ -46,5 +52,13 @@ int pop(struct Stack *stack);
 int peek(struct Stack *stack);
 void showStack(struct Stack *stack);
 
+
+//For Stack with Linked List
+void initializeStack(struct StackLL* stack);
+int emptyStack(struct StackLL* stack);
+void pushStack(struct StackLL* stack,int data);
+int popStack(struct StackLL* stack);
+int peekStack(struct StackLL* stack);
+void displayStack(struct StackLL* stack);
 
 #endif //TEST_DATASTRUCTURE_H

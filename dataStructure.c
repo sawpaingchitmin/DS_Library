@@ -190,7 +190,7 @@ void doubleDisplayBackward(struct Node *head){
 }
 
 
-// For Stack Data Structure
+// For Stack DS(Array Implement)
 void initializing(struct Stack *stack){
     stack->top = -1;
 }
@@ -241,5 +241,64 @@ void showStack(struct Stack *stack){
     for(int i = 0; i <= stack->top; i++){
         printf("Index %d => %d\n",i,stack->item[i]);
     }
+}
+
+
+
+// For Stack DS(Linked List Implement)
+void initializeStack(struct StackLL* stack){
+    stack->top = NULL;
+}
+
+int emptyStack(struct StackLL* stack){
+    return (stack->top == NULL);
+}
+
+void pushStack(struct StackLL* stack,int data){
+    struct Node* newNode = (struct Node*)malloc(sizeof (struct Node));
+    if(newNode == NULL){
+        printf("Memory Allocation is failed!\n");
+        exit(1);
+    }
+
+    newNode->data = data;
+    newNode->next = stack->top;
+    stack->top = newNode;
+    printf("Node %d pushed to stack\n",data);
+}
+
+int popStack(struct StackLL* stack){
+    if(emptyStack(stack)){
+        printf("Stack underflow!\n");
+        exit(1);
+
+    }else {
+
+        struct Node *temp = stack->top;
+        int data = temp->data;
+        stack->top = temp->next;
+        free(temp);
+        return data;
+    }
+}
+
+int peekStack(struct StackLL* stack){
+    if(emptyStack(stack)){
+        printf("Stack underflow!\n");
+        exit(1);
+    }
+
+    struct Node *temp = stack->top;
+    int data = temp->data;
+    return data;
+}
+
+void displayStack(struct StackLL* stack){
+    printf("Elements present in stack : ");
+    while (stack->top != NULL){
+        printf("%d ",stack->top->data);
+        stack->top = stack->top->next;
+    }
+    printf("\n");
 }
 
