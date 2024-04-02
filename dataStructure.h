@@ -2,8 +2,8 @@
 // Created by saw_henry_min on 3/14/24.
 //
 
-#ifndef TEST_DATASTRUCTURE_H
-#define TEST_DATASTRUCTURE_H
+#ifndef C_ASSIGNMENT_DATASTRUCTURE_H
+#define C_ASSIGNMENT_DATASTRUCTURE_H
 #define MAX_SIZE 10
 
 
@@ -61,4 +61,4 @@ int popStack(struct StackLL* stack);
 int peekStack(struct StackLL* stack);
 void displayStack(struct StackLL* stack);
 
-#endif //TEST_DATASTRUCTURE_H
+#endif //C_ASSIGNMENT_DATASTRUCTURE_H
