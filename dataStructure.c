@@ -302,3 +302,100 @@ void displayStack(struct StackLL* stack){
     printf("\n");
 }
 
+
+
+// For Queue DS(Array Implement)
+int queue[MAX_SIZE], front = -1, rear = -1;
+
+void enQueue(int data){
+    if(rear == 0) {
+        printf("Queue is full!\n");
+    }else{
+        if(front == -1) {
+            front = MAX_SIZE - 1;
+            rear = MAX_SIZE;
+        }
+
+        queue[--rear] = data;
+        printf("Enqueue Data : %d\n",data);
+    }
+}
+
+int deQueue(){
+    int data = -1;
+    if(front == -1) {
+        printf("Queue is empty!\n");
+    }else{
+        data = queue[front];
+        printf("Dequeue Data : %d\n",data);
+        front--;
+
+        if(front < rear){
+            front = rear = -1;
+        }
+
+    }
+    return data;
+}
+
+void display(){
+    if(rear == -1) {
+        printf("Queue is empty!\n");
+    }else{
+        printf("\nFront -> %d\n",front);
+        printf("Queue elements are : ");
+        for(int i = rear; i <= front; i++){
+            printf("%d ",queue[i]);
+        }
+        printf("\nRear -> %d\n",rear);
+    }
+    printf("\n");
+}
+
+
+
+// For Queue DS(Linked List Implement)
+struct QNode* newNode(int key){
+    struct QNode *Node = (struct QNode*)malloc(sizeof (struct QNode));
+    Node->key = key;
+    Node->next = NULL;
+    return Node;
+
+}
+
+struct Queue* createQueue(){
+    struct Queue *q = (struct Queue*)malloc(sizeof (struct Queue));
+    q->front = q->rear = NULL;
+    return q;
+}
+
+void EnQueue(struct Queue *q,int key){
+
+    struct QNode *Node = newNode(key);
+
+    if(q->rear == NULL) {
+        q->front = q->rear = Node;
+        return;
+    }
+
+    q->rear->next = Node;
+    q->rear = Node;
+
+}
+
+void DeQueue(struct Queue *q){
+
+    if(q->front == NULL)
+        return;
+
+
+    struct QNode *temp = q->front;
+
+    q->front = q->front->next;
+
+    if(q->front == NULL)
+        q->rear = NULL;
+
+
+    free(temp);
+}

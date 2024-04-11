@@ -11,7 +11,7 @@ int main(){
     struct StackLL* stack;
     initializeStack((struct StackLL*) &stack);
     pushStack((struct StackLL*) &stack,10);
-    pushStack((struct StackLL*) &stack,20);
+    pushStack((struct StackLL*) &stack,40);
     pushStack((struct StackLL*) &stack,30);
 
     printf("Node %d popped from stack\n",popStack((struct StackLL*) &stack));
